@@ -1,4 +1,4 @@
-# rpi-tg-gateway
+# rpi-sms-tg-gateway
 Raspberry Pi SMS to telegram gateway
 
 Now support only sending SMS to TG via bot api.

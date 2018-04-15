@@ -2,7 +2,10 @@
 
 from __future__ import print_function
 import os, sys, re, requests
-from config import *
+
+tg_bot_api_key = ""
+tg_chat_id = ""
+
 
 def get_message():
     files = [os.path.join('/var/spool/gammu/inbox/', m) for m in sys.argv[1:]]
@@ -20,7 +23,8 @@ def get_message():
 number, text = get_message()
 
 request = requests.post("https://api.telegram.org/bot"+tg_bot_api_key+"/sendMessage", data={
+    'parse_mode': 'Markdown',
     'chat_id': tg_chat_id,
-    'text': number + ": " + text
+    'text': '*' + number + ":* \n" + text
 })
 

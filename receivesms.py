@@ -19,10 +19,8 @@ def get_message():
 
 number, text = get_message()
 
-request = requests.post(mailgun_request_url, auth=('api', mailgun_api_key), data={
-    'from': mailgun_user,
-    'to': ['info@andypi.co.uk'],
-    'subject': number,
-    'text': text
+request = requests.post("https://api.telegram.org/bot"+tg_bot_api_key+"/sendMessage", data={
+    'chat_id': tg_chat_id,
+    'text': number + ": " + text
 })
 
